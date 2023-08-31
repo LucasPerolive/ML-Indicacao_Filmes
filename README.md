@@ -10,3 +10,17 @@ Certifique-se de ter as seguintes bibliotecas instaladas em seu ambiente Python:
 * matplotlib
 * seaborn
 * scipy
+
+Você pode instalá-las utilizando o seguinte comando:
+```pip install pandas skelearn matplotlib seaborn scipy```
+
+## Conjuto de Dados
+O conjuto de dados utilizados neste projeto é o "movies.csv", que contém informações de filmes. O conjunto de dados possui as seguintes colunas:
+* movieId: Id do filme
+* title: nome do filme e seu ano
+* genres: os gêneros que o filme faz parte
+
+## Etapas do Projeto
+O projeto é dividido nas seguintes etapas:
+
+1. <b>OI</b>
