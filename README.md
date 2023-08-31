@@ -49,6 +49,8 @@ generos_escalados = scaler.fit_transform(generos)
 
 ### 3. Carregamento do código:
 Usa os dados para a criação de um modelo que gere gráficos para a melhor compreensão dos dados:
+
+Função necessaria para o calculo da inertia:
 ```
 def kmeans(numero_de_clusters, generos):
     modelo = KMeans(n_clusters=numero_de_clusters, n_init=10)
@@ -56,6 +58,7 @@ def kmeans(numero_de_clusters, generos):
     return [numero_de_clusters, modelo.inertia_]
 ```
 
+Função para o calculo de inertia:
 ```
 def grafico_inertia():
     print("\nIsso irá demorar um minuto!")
@@ -66,6 +69,7 @@ def grafico_inertia():
     plt.show()
 ```
 
+Função para gerar os gráficos de categorias dos grupos:
 ```
 def grafico_grupos():
     print("\nIsso irá demorar um minuto!")
@@ -77,6 +81,7 @@ def grafico_grupos():
 
 ```
 
+Função para gerar o gráfico de relação dimensional dos grupos:
 ```
 def grafico_dimensional():
     print("\nIsso irá demorar um minuto!")
@@ -88,6 +93,7 @@ def grafico_dimensional():
     plt.show()
 ```
 
+Função para ver a relação dos grupos:
 ```
 def dedograma():
     grupos = pd.DataFrame(modelo.cluster_centers_, columns=generos.columns)
@@ -96,6 +102,7 @@ def dedograma():
     plt.show()
 ```
 
+Função para filtrar os grupos e ver quais filmes eles possuem:
 ```
 def filtragem_grupos():
     x = int(input('Qual grupo você deseja ver: '))
@@ -104,3 +111,21 @@ def filtragem_grupos():
     filtro = modelo.labels_ == grupo
     return dados_dos_filmes[filtro].head(linhas)
 ```
+
+### 4. Conclusão:
+Mostrar os gráficos para o usuário de acordo com a sua escolha:
+```
+def switch_case(case):
+    switch_dict = {
+        'opcao1': grafico_inertia,
+        'opcao2': grafico_grupos,
+        'opcao3': grafico_dimensional,
+        'opcao4': dedograma,
+        'opcao5': filtragem_grupos
+    }
+    selected_case = switch_dict.get(case)
+    return selected_case()
+```
+
+## Conclusão
+Este notebook demonstra como funciona um algoritemo não supervisonado para a recomendação de filmes usando Python e bibliotecas como pandas, sklearn, matplotlib, seaborn, scipy. Este projeto serve como ponto de partida para projetos mais complexos.
